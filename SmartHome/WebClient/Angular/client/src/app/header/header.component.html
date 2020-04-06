@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm site-header sticky-top navbar-light bg-light" id="nav_color">
+    <a class="navbar-brand" [routerLink]="['/']">Smart home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">       
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+        <a *ngIf="authServise.isLogIn()" class="nav-link" [routerLink]="['/dashboard']">Кабинет пользователя</a>
+        <a *ngIf="authServise.isLogIn()" (click)="logoutUser()" class="nav-link" [routerLink]="['/']">Выйти</a>
+        <a *ngIf="!authServise.isLogIn()" class="nav-link" [routerLink]="['/auth']">Войти</a>
+        <a *ngIf="!authServise.isLogIn()" class="nav-link" [routerLink]="['/reg']">Регистрация</a>
+      </form>
+    </div>
+</nav>

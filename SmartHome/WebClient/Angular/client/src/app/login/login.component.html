@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="pen-title">
+      <div class="container">
+          <div class="card"></div>
+            <div class="card">
+            <h1 class="title">Login</h1>
+            <form class="example-form container" (submit)="userLoginClick()" >              
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-icon class="mat-icon-name" matPrefix>account_box</mat-icon>
+                    <mat-label>Введите логин</mat-label>
+                    <input  [(ngModel)]="login" #name="ngModel" id="Username" max="100" required name="login" matInput placeholder="Login" required>
+                </mat-form-field>
+                <mat-form-field  appearance="outline" class="example-full-width">
+                    <mat-icon class="mat-icon-name" matPrefix>lock</mat-icon>
+                    <mat-label>Введите пароль</mat-label>
+                    <input matInput type="password" [(ngModel)]="password" #name="ngModel" name="password"  id="Password" max="50" [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>       
+                <button mat-raised-button color="primary" class="btn-full-width" type="submit">Авторизация</button>                
+                <div class="footer"><a [routerLink]="['/reg']">Перейти к регистрации?</a>
+            </div>
+          </form>
+        </div>  
+      </div>
+  </div>
+</div>

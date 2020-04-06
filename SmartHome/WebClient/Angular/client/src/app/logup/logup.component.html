@@ -1,0 +1,45 @@
+<div class="pen-title">
+    <div class="container">
+        <div class="card"></div>
+        <div class="card">
+            <h1 class="title">Registration</h1>
+            <form class="example-form container" (submit)="userRegClick()" >              
+                        <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-icon class="mat-icon-name" matPrefix>account_box</mat-icon>
+                            <mat-label>Login</mat-label>
+                            <input [(ngModel)]="login"  name="login" matInput placeholder="Login" required>
+                        </mat-form-field>
+                        <mat-form-field  appearance="outline" class="example-full-width">
+                            <mat-icon class="mat-icon-name" matPrefix>lock</mat-icon>
+                            <mat-label>Enter your password</mat-label>
+                            <input [(ngModel)]="password" name="password" matInput [type]="hide ? 'password' : 'text'">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                        <mat-form-field  appearance="outline" class="example-full-width">
+                            <mat-icon class="mat-icon-name" matPrefix>lock</mat-icon>
+                            <mat-label>Enter your password</mat-label>
+                            <input [(ngModel)]="password_rep" name="password_rep" matInput [type]="hide ? 'password' : 'text'">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                        </mat-form-field>
+                            <mat-form-field appearance="outline" class="example-full-width">
+                            <mat-icon class="mat-icon-name" matPrefix>email</mat-icon>                
+                            <mat-label>Email</mat-label>
+                            <input type="email" [(ngModel)]="email"  name="email" matInput [formControl]="emailFormControl" placeholder="Ex.pat@example.com">
+                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                Пожалуйста введите корректный e-mail
+                            </mat-error>
+                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                Email  <strong>незаполнен</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" class="btn-full-width" type="submit">Регистрация</button>                
+                        <div class="footer"><a [routerLink]="['/auth']">Перейти к авторизации?</a>
+                    </div>
+            </form>
+        </div> 
+    </div>  
+</div>
